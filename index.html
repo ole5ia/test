@@ -1,492 +1,160 @@
 <!DOCTYPE html>
-<html class="light" lang="ru">
+<html lang="ru">
 <head>
-    <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>Септик Сервис — Замена септиков</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-    <script id="tailwind-config">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Септик Сервис — Замена септиков</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
             theme: {
                 extend: {
                     colors: {
-                        "primary": "#FF0000",
-                        "primary-alt": "#e60510",
-                        "background-light": "#FFFFFF",
-                        "background-dark": "#000000",
-                        "slate-custom": "#333333",
-                        "slate-light": "#F5F5F5",
-                        "neutral-900": "#000000",
-                        "neutral-50": "#ffffff",
+                        "primary": "#001F3F", // Deep Navy Blue
+                        "accent": "#FF851B",  // Solid Orange
+                        "industry-gray": "#333333",
+                        "border-bold": "#000000"
                     },
                     fontFamily: {
-                        "display": ["Inter", "sans-serif"],
-                        "mono": ["monospace", "ui-monospace", "SFMono-Regular"]
+                        "sans": ["Inter", "sans-serif"]
                     },
                     borderRadius: {
-                        "DEFAULT": "0px",
-                        "none": "0px",
-                        "sm": "0px",
-                        "md": "0px",
-                        "lg": "0px",
-                        "xl": "0px",
-                        "2xl": "0px",
-                        "full": "0px"
-                    },
-                    borderWidth: {
-                        "3": "3px",
+                        "none": "0px"
                     }
-                },
-            },
-        }
-    </script>
-    <style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-        body {
-            font-family: 'Inter', sans-serif;
-            -webkit-tap-highlight-color: transparent;
-        }
-        input[type=number]::-webkit-inner-spin-button, 
-        input[type=number]::-webkit-outer-spin-button { 
-            -webkit-appearance: none; 
-            margin: 0; 
-        }
-        .section-hidden {
-            display: none;
-        }
-        .section-active {
-            display: block;
-        }
-    </style>
-    <style>
-        body {
-            min-height: max(884px, 100dvh);
-        }
-    </style>
-</head>
-<body class="bg-background-light text-black antialiased">
-
-    <!-- Navigation -->
-    <nav class="fixed top-0 left-0 right-0 z-50 bg-black text-white border-b-2 border-primary">
-        <div class="flex items-center justify-between h-14 px-4 max-w-7xl mx-auto">
-            <div class="flex items-center gap-2">
-                <span class="material-symbols-outlined text-primary">plumbing</span>
-                <span class="font-black text-sm uppercase tracking-wider">Септик Эксперт</span>
-            </div>
-            <div class="flex gap-1">
-                <button onclick="showSection('hero')" class="nav-btn px-3 py-2 text-xs font-bold uppercase hover:bg-primary transition-colors" data-section="hero">Главная</button>
-                <button onclick="showSection('calculator')" class="nav-btn px-3 py-2 text-xs font-bold uppercase hover:bg-primary transition-colors" data-section="calculator">Калькулятор</button>
-                <button onclick="showSection('comparison')" class="nav-btn px-3 py-2 text-xs font-bold uppercase hover:bg-primary transition-colors" data-section="comparison">Сравнение</button>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Section 1: Hero / Main Screen -->
-    <section id="hero" class="section-active pt-14">
-        <div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
-            <header class="sticky top-14 z-40 flex items-center bg-white h-[72px] justify-between border-b-2 border-black">
-                <div class="flex items-center gap-3 pl-6">
-                    <div class="bg-primary text-white flex size-10 shrink-0 items-center justify-center">
-                        <span class="material-symbols-outlined text-2xl">plumbing</span>
-                    </div>
-                    <div class="flex flex-col">
-                        <span class="text-base font-black tracking-tighter uppercase leading-none text-black">СЕПТИК</span>
-                        <span class="text-[10px] font-bold text-primary tracking-[0.2em] leading-none mt-1">ЭКСПЕРТ</span>
-                    </div>
-                </div>
-                <div class="flex items-center justify-end h-full">
-                    <a class="flex w-[72px] items-center justify-center bg-black text-white hover:bg-primary transition-colors h-full" href="tel:+70000000000">
-                        <span class="material-symbols-outlined">phone</span>
-                    </a>
-                </div>
-            </header>
-            <main class="flex-grow bg-white">
-                <div class="pt-12 px-6 pb-16 max-w-2xl mx-auto md:max-w-4xl lg:max-w-7xl">
-                    <h1 class="text-black text-4xl sm:text-5xl md:text-6xl font-black leading-[0.95] tracking-tight uppercase mb-8">
-                        Замена септика:<br/>
-                        <span class="text-primary">Инженерный</span> подход
-                    </h1>
-                    <div class="border-l-4 border-primary pl-5 py-2 mb-10 max-w-md">
-                        <p class="text-xl sm:text-2xl font-bold leading-tight uppercase text-slate-custom">
-                            Смета до начала работ и выезд инженера <span class="text-primary">0₽</span>
-                        </p>
-                    </div>
-                    <div class="flex flex-col md:flex-row gap-8 items-start">
-                        <div class="w-full md:w-1/2 flex flex-col gap-4 order-2 md:order-1">
-                            <button onclick="showSection('calculator')" class="flex w-full cursor-pointer items-center justify-center h-16 px-8 bg-primary text-white text-lg font-black uppercase tracking-widest hover:bg-black transition-colors shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] active:translate-y-1 active:shadow-none border-2 border-black md:border-none">
-                                Рассчитать экономию
-                            </button>
-                            <button class="flex w-full cursor-pointer items-center justify-center h-16 px-8 bg-black text-white text-lg font-black uppercase tracking-widest hover:bg-primary transition-colors border-2 border-black">
-                                Задать вопрос
-                            </button>
-                        </div>
-                        <div class="relative w-full md:w-1/2 order-1 md:order-2">
-                            <div class="relative aspect-[4/3] w-full border-2 border-black overflow-hidden bg-gray-100">
-                                <div class="absolute inset-0 bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAxN9t06ufJAdCFKlJtiex5v6qPRRVP2GTRyFITtkk5DUMaN9AAPQYC5M452v9gOpVmaZDuemzmjWRvfD5W9EhWk-JMHpL0Yo1jHecQUVRaLaF6eoFXPOprvKSM0-d1muZqEe16NMLP-lKtOGriuhX6Gz4SlkanSX2mNFNWv8uI5UFhQ9YQk0eOD7s7MWBqIbWzOMbD3P-FccIMhhxf7QrM7fe2YvF1EKa8Tb-ti8uzLbKuKdBviwfLym7gqw3PPXsmFvNONX7OtgY"); filter: grayscale(100%);'></div>
-                                <div class="absolute inset-0 bg-black/5"></div>
-                                <div class="absolute bottom-0 right-0 bg-white border-t-2 border-l-2 border-primary p-4 max-w-[220px]">
-                                    <div class="flex flex-col gap-1">
-                                        <span class="text-black text-sm font-black uppercase leading-tight">Кирилл Матушкин</span>
-                                        <span class="text-gray-500 text-[10px] font-bold uppercase tracking-wider">Ведущий инженер</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-slate-50 border-t-2 border-black py-16 px-6">
-                    <div class="max-w-7xl mx-auto">
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                            <div class="flex flex-col gap-4 border-2 border-black p-6 hover:border-primary transition-colors bg-white group shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-                                <div class="flex justify-between items-start">
-                                    <div class="flex size-14 shrink-0 items-center justify-center bg-black text-white group-hover:bg-primary transition-colors">
-                                        <span class="material-symbols-outlined text-3xl">workspace_premium</span>
-                                    </div>
-                                    <span class="text-4xl font-black text-slate-200 leading-none">01</span>
-                                </div>
-                                <div class="flex flex-col gap-2 mt-2">
-                                    <h2 class="text-black text-xl font-black uppercase tracking-tight">ОФИЦИАЛЬНЫЙ ДИЛЕР</h2>
-                                    <div class="h-1 w-12 bg-primary"></div>
-                                    <p class="text-sm font-medium text-slate-600">Гарантия производителя</p>
-                                </div>
-                            </div>
-                            <div class="flex flex-col gap-4 border-2 border-black p-6 hover:border-primary transition-colors bg-white group shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-                                <div class="flex justify-between items-start">
-                                    <div class="flex size-14 shrink-0 items-center justify-center bg-black text-white group-hover:bg-primary transition-colors">
-                                        <span class="material-symbols-outlined text-3xl">history</span>
-                                    </div>
-                                    <span class="text-4xl font-black text-slate-200 leading-none">02</span>
-                                </div>
-                                <div class="flex flex-col gap-2 mt-2">
-                                    <h2 class="text-black text-xl font-black uppercase tracking-tight">12 ЛЕТ ОПЫТА</h2>
-                                    <div class="h-1 w-12 bg-primary"></div>
-                                    <p class="text-sm font-medium text-slate-600">Более 5000 объектов</p>
-                                </div>
-                            </div>
-                            <div class="flex flex-col gap-4 border-2 border-black p-6 hover:border-primary transition-colors bg-white group shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-                                <div class="flex justify-between items-start">
-                                    <div class="flex size-14 shrink-0 items-center justify-center bg-black text-white group-hover:bg-primary transition-colors">
-                                        <span class="material-symbols-outlined text-3xl">gavel</span>
-                                    </div>
-                                    <span class="text-4xl font-black text-slate-200 leading-none">03</span>
-                                </div>
-                                <div class="flex flex-col gap-2 mt-2">
-                                    <h2 class="text-black text-xl font-black uppercase tracking-tight">ФИКСИРОВАННАЯ ЦЕНА</h2>
-                                    <div class="h-1 w-12 bg-primary"></div>
-                                    <p class="text-sm font-medium text-slate-600">Никаких скрытых доплат</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </main>
-            <footer class="flex flex-col gap-10 px-6 py-16 text-center bg-black text-white border-t-8 border-primary">
-                <div class="flex flex-col items-center gap-6">
-                    <p class="text-white font-black uppercase tracking-[0.2em] text-sm border-b-2 border-primary pb-2">Свяжитесь с нами</p>
-                    <div class="flex justify-center gap-6">
-                        <a class="flex items-center justify-center size-14 bg-white text-black hover:bg-primary hover:text-white transition-colors shadow-[4px_4px_0px_0px_rgba(255,255,255,0.2)]" href="#">
-                            <span class="material-symbols-outlined text-3xl">send</span>
-                        </a>
-                        <a class="flex items-center justify-center size-14 bg-white text-black hover:bg-primary hover:text-white transition-colors shadow-[4px_4px_0px_0px_rgba(255,255,255,0.2)]" href="#">
-                            <span class="material-symbols-outlined text-3xl">chat</span>
-                        </a>
-                    </div>
-                </div>
-                <div class="flex flex-col gap-3 border-t-2 border-white/10 pt-8 w-full">
-                    <p class="text-white/90 text-sm font-bold uppercase">© 2024 Септик Сервис Ленинградская область</p>
-                    <p class="text-xs text-white/40 uppercase tracking-wide">Профессиональный монтаж и обслуживание</p>
-                </div>
-            </footer>
-        </div>
-    </section>
-
-    <!-- Section 2: Calculator -->
-    <section id="calculator" class="section-hidden pt-14">
-        <div class="bg-white min-h-screen flex flex-col text-black antialiased">
-            <div class="sticky top-14 z-40 flex items-center bg-white p-4 border-b-2 border-black">
-                <div class="flex size-10 shrink-0 items-center justify-center border-2 border-black bg-black text-white">
-                    <span class="material-symbols-outlined text-[24px]">calculate</span>
-                </div>
-                <h2 class="text-base font-black uppercase tracking-widest flex-1 text-center pr-10">Калькулятор</h2>
-            </div>
-            <main class="flex-1 flex flex-col w-full max-w-md mx-auto px-4 pb-10 pt-6">
-                <div class="flex flex-col gap-2 mb-8">
-                    <div class="flex justify-between items-end text-black">
-                        <p class="text-xs font-bold uppercase tracking-widest">Шаг 2/3: Частота вызова</p>
-                        <p class="text-xs font-black">66%</p>
-                    </div>
-                    <div class="w-full h-6 border-2 border-black bg-white p-0.5">
-                        <div class="h-full bg-primary w-[66%]"></div>
-                    </div>
-                </div>
-                <div class="mb-6">
-                    <h3 class="text-3xl font-black uppercase leading-none tracking-tighter text-black mb-2">Частота вызова</h3>
-                    <p class="text-black text-sm font-medium border-l-4 border-primary pl-3 py-1">
-                        Частая откачка говорит о неэффективности. Выберите ваш текущий график.
-                    </p>
-                </div>
-                <div class="grid grid-cols-1 gap-[-1px] border-2 border-black bg-black p-[2px]">
-                    <button class="freq-btn flex items-center gap-4 p-5 bg-black text-white border-b border-white/20 last:border-0 group relative overflow-hidden" data-freq="weekly">
-                        <div class="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
-                        <div class="flex shrink-0 items-center justify-center">
-                            <span class="material-symbols-outlined text-[32px] check-icon">check_box</span>
-                        </div>
-                        <div class="flex-1 text-left">
-                            <p class="text-lg font-black uppercase tracking-tight">Раз в неделю</p>
-                            <p class="text-white/70 text-xs font-mono uppercase mt-1">Критически часто</p>
-                        </div>
-                    </button>
-                    <button class="freq-btn flex items-center gap-4 p-5 bg-white text-black border-b-2 border-black hover:bg-gray-50 text-left group transition-colors" data-freq="monthly">
-                        <div class="flex shrink-0 items-center justify-center">
-                            <span class="material-symbols-outlined text-[32px] check-icon">check_box_outline_blank</span>
-                        </div>
-                        <div class="flex-1">
-                            <p class="text-lg font-bold uppercase tracking-tight">Раз в месяц</p>
-                            <p class="text-gray-500 text-xs font-mono uppercase mt-1">Высокая нагрузка</p>
-                        </div>
-                    </button>
-                    <button class="freq-btn flex items-center gap-4 p-5 bg-white text-black text-left group hover:bg-gray-50 transition-colors" data-freq="halfyear">
-                        <div class="flex shrink-0 items-center justify-center">
-                            <span class="material-symbols-outlined text-[32px] check-icon">check_box_outline_blank</span>
-                        </div>
-                        <div class="flex-1">
-                            <p class="text-lg font-bold uppercase tracking-tight">Раз в полгода</p>
-                            <p class="text-gray-500 text-xs font-mono uppercase mt-1">Стандартный режим</p>
-                        </div>
-                    </button>
-                </div>
-                <div class="mt-10">
-                    <label class="block text-sm font-bold uppercase tracking-wider mb-2">Шаг 1: Стоимость откачки (₽)</label>
-                    <div class="relative flex items-center border-2 border-black bg-white h-16 px-4 hover:bg-gray-50 focus-within:bg-gray-50 focus-within:ring-2 focus-within:ring-black focus-within:ring-offset-2">
-                        <span class="text-2xl font-black text-black mr-2">₽</span>
-                        <input id="pump-cost" class="w-full text-3xl font-black bg-transparent border-none text-left focus:ring-0 p-0 text-black placeholder-gray-300" placeholder="0" type="number" value="5000"/>
-                        <span class="material-symbols-outlined text-black">edit</span>
-                    </div>
-                </div>
-                <div class="mt-10 border-4 border-black p-6 bg-white relative">
-                    <div class="absolute -top-3 -right-3 bg-primary text-white text-xs font-bold px-2 py-1 border-2 border-black transform rotate-2">
-                        ВНИМАНИЕ
-                    </div>
-                    <div class="flex justify-between items-start mb-2">
-                        <p class="text-xs font-mono uppercase text-gray-500">Потери за 2 года</p>
-                        <span class="material-symbols-outlined text-primary text-[32px]">trending_up</span>
-                    </div>
-                    <p id="total-loss" class="text-5xl font-black tracking-tighter text-black mb-4">120 000 ₽</p>
-                    <div class="flex items-center gap-3 border-t-2 border-black pt-3">
-                        <div class="bg-primary text-white p-1 flex items-center justify-center border border-black">
-                            <span class="material-symbols-outlined text-sm">priority_high</span>
-                        </div>
-                        <p id="yearly-cost" class="text-sm font-bold text-primary uppercase">Ваши затраты в год: 60 000 ₽</p>
-                    </div>
-                </div>
-                <div class="mt-auto pt-10">
-                    <button onclick="showSection('comparison')" class="w-full bg-primary text-white border-2 border-black py-5 font-black text-xl uppercase tracking-wider hover:bg-black hover:text-white transition-colors flex items-center justify-center gap-4 group shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px]">
-                        Получить план решения
-                        <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
-                    </button>
-                    <p class="text-center mt-4 text-[10px] font-mono font-bold text-gray-400 uppercase tracking-widest">Без обязательств • Бесплатный анализ</p>
-                </div>
-                <div class="mt-12 grid grid-cols-2 gap-4">
-                    <div class="flex flex-col gap-2">
-                        <div class="w-full aspect-square bg-cover bg-center border-2 border-black filter grayscale contrast-125" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDyWnp626bKzxw6m0J65HgylTr63UWxVeyW6lvyDCYQcf-PUEJXwZ0PIhG4r0I6aVIyvkvBKdIHinwTD-QZMv68Jsvq5XAEDUYKD1tt8X_r0gcpxfx7eXpxYiSqOEWLJpFvi_xZs-A_FqgAtcJ5R30GCr41-7-1GrnPY1VOE59YTiAeK9WpHo42uEP8iIeFBFzJaaxWuGm_lItFtqQzJlhwiH41GXUOWq2M36Q_DxP8-Weq_1LbZiO_Yi2Olp7yKAnA3P6iUV9I920');"></div>
-                        <div class="border-t-2 border-black pt-1">
-                            <p class="text-[10px] font-black uppercase">Сейчас: Ассенизатор</p>
-                        </div>
-                    </div>
-                    <div class="flex flex-col gap-2">
-                        <div class="w-full aspect-square bg-cover bg-center border-2 border-primary filter contrast-125 relative" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDjFqezNNaFo6pA9XPgH4haadoSEfkIlXanrAXdef7PGb1uk9Gl4Q5riIfmDHW5cb5B2tp6IObaB0k2zBEi2ZvDFdX2TFFiyHPizahKihNEyxgkB9jpqihYBpngyjDjGu163xCpTrxtCBWQsXT3Cg7AyJumg3zEXEQnrd4Uk1UDSR2pYxhvXdfkmak8nezmgCipw49e4jC0u-qJZ-L3waJBKhLypBHzPwmsBtCKcDvyoAwPeO93EAZHB-2J7LZaC3fmBDlLauGuCpU');">
-                            <div class="absolute inset-0 border-[4px] border-primary opacity-20"></div>
-                        </div>
-                        <div class="border-t-2 border-primary pt-1">
-                            <p class="text-[10px] font-black uppercase text-primary">Будет: Станция</p>
-                        </div>
-                    </div>
-                </div>
-            </main>
-            <div class="h-8 shrink-0"></div>
-        </div>
-    </section>
-
-    <!-- Section 3: Comparison -->
-    <section id="comparison" class="section-hidden pt-14">
-        <div class="bg-[#f8f5f6] dark:bg-[#230f10] text-[#1c0d0d] dark:text-[#fcf8f8] min-h-screen">
-            <div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
-                <div class="flex items-center bg-[#f8f5f6] dark:bg-[#230f10] p-4 pb-2 justify-between sticky top-14 z-40 border-b border-black/10">
-                    <div class="text-[#1c0d0d] dark:text-[#fcf8f8] flex size-12 shrink-0 items-center">
-                        <button onclick="showSection('calculator')" class="cursor-pointer">
-                            <span class="material-symbols-outlined">arrow_back_ios</span>
-                        </button>
-                    </div>
-                    <h2 class="text-[#1c0d0d] dark:text-[#fcf8f8] text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center font-display uppercase">СРАВНЕНИЕ</h2>
-                    <div class="flex w-12 items-center justify-end">
-                        <button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden h-12 bg-transparent text-[#1c0d0d] dark:text-[#fcf8f8] gap-2 text-base font-bold leading-normal tracking-[0.015em] min-w-0 p-0 rounded-none">
-                            <span class="material-symbols-outlined">share</span>
-                        </button>
-                    </div>
-                </div>
-                <main class="flex-1 flex flex-col">
-                    <div class="px-4 py-6">
-                        <h2 class="text-[#1c0d0d] dark:text-[#fcf8f8] text-3xl font-bold leading-tight tracking-[-0.02em] font-display uppercase mb-1">ДО И ПОСЛЕ</h2>
-                        <p class="text-[#9e474c] dark:text-[#e9cecf] text-xs font-mono uppercase tracking-widest">ПРОЕКТ №4429: МОСКОВСКАЯ ОБЛ.</p>
-                    </div>
-                    <div class="px-4 mb-8">
-                        <div class="relative aspect-[3/4] w-full overflow-hidden border border-black group">
-                            <div class="absolute inset-0 bg-center bg-cover" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBTiqS0S4KTmVuNg3BrWZojv_XFaLbeHLbUKccge3VM3Hr1_1Tb7ZBG8BYOhdRuvSqxbOGk--DEmqrOfAYpoOfKCa-sW86dmLIyuNTJVTp_8hhLNoNldFVyXGUz8ZBqPUXKjbOkYBhyOHm1Cnqw716bOou61VcWAGVSDbn1P3V21JYz4d7GJQU1zqDx4xXEabDVyrHqdkEyjNoM98CJC--imVDjkhSlHR86I_V2e9zQl4JOU6WDcpKuU4Ow062w-CZ3uWD9_n3Ns_s");'>
-                            </div>
-                            <div class="absolute inset-0 bg-center bg-cover w-1/2 z-10" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD0buMon2ipc0loPMPuSkRJ2Q2f7Ab_yEOwpKsENZqGUxIwdMymzIzyMPgIsmno1Xdo4Dm_f862OlXurt5p7fRJRFL9FR0p9_j8-TDhln7lQBJEspG4dtZPc2kwPpbNlKQvc0SBoCray1sgG4I_lkdOd2EGQ-lT-K6cdTTRY8FfbxXZw2mxwiQ8HPJ66b_cc2ky0BHO9uRmtngHUaGfYkrMMFlOko8iKkE4g9YgfycBBNKeq_O5zGnYcTmZP5gxlO4O08BnjQnEWMM"); filter: grayscale(100%) contrast(1.1);'>
-                                <div class="absolute top-0 left-0 bg-black text-white px-3 py-2 text-xs font-bold uppercase tracking-widest whitespace-nowrap">
-                                    БЫЛО: Глина и запах
-                                </div>
-                            </div>
-                            <div class="absolute top-0 right-0 bg-primary-alt text-white px-3 py-2 text-xs font-bold uppercase tracking-widest z-20 whitespace-nowrap">
-                                СТАЛО: Чистый участок
-                            </div>
-                            <div class="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-1.5 bg-primary-alt z-30"></div>
-                        </div>
-                        <div class="@container">
-                            <div class="relative flex w-full flex-col items-start justify-between gap-3 py-4 @[480px]:flex-row border-b border-black/10">
-                                <p class="text-[#1c0d0d] dark:text-[#fcf8f8] text-sm font-bold uppercase tracking-wider w-full shrink-[3]">ПРОЛИСТАЙТЕ ДЛЯ СРАВНЕНИЯ</p>
-                                <div class="flex h-2 w-full pt-1">
-                                    <div class="flex h-1 w-full bg-[#e9cecf] dark:bg-[#3d1f21]">
-                                        <div class="w-1/2 bg-primary-alt h-full"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="px-4 pb-2">
-                        <h3 class="text-[#1c0d0d] dark:text-[#fcf8f8] text-lg font-bold leading-tight tracking-[-0.015em] mb-6 font-display uppercase border-b border-black pb-2 inline-block">АНАЛИЗ</h3>
-                        <div class="grid grid-cols-1 gap-6 mb-8">
-                            <div class="flex flex-col gap-4 border border-black bg-white p-6">
-                                <div class="flex items-center gap-3 border-b border-black/10 pb-3">
-                                    <span class="material-symbols-outlined text-black font-bold">warning</span>
-                                    <h2 class="text-black text-sm font-bold font-display uppercase tracking-wider">Старый метод</h2>
-                                </div>
-                                <ul class="space-y-4">
-                                    <li class="flex items-start gap-3">
-                                        <span class="material-symbols-outlined text-[#555] text-sm mt-0.5">sentiment_very_dissatisfied</span>
-                                        <p class="text-black text-sm font-medium leading-tight">Неприятный запах на участке</p>
-                                    </li>
-                                    <li class="flex items-start gap-3">
-                                        <span class="material-symbols-outlined text-[#555] text-sm mt-0.5">payments</span>
-                                        <p class="text-black text-sm font-medium leading-tight">Высокие затраты на откачку</p>
-                                    </li>
-                                    <li class="flex items-start gap-3">
-                                        <span class="material-symbols-outlined text-[#555] text-sm mt-0.5">nature_people</span>
-                                        <p class="text-black text-sm font-medium leading-tight">Постоянное заиливание грунта</p>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="flex flex-col gap-4 border-l border-r border-b border-black border-t-2 border-t-primary-alt bg-white p-6 relative">
-                                <div class="absolute top-0 left-0 right-0 h-0.5 bg-primary-alt"></div>
-                                <div class="flex items-center gap-3 border-b border-black/10 pb-3">
-                                    <span class="material-symbols-outlined text-primary-alt font-bold">check_circle</span>
-                                    <h2 class="text-black text-sm font-bold font-display uppercase tracking-wider">Новая станция</h2>
-                                </div>
-                                <ul class="space-y-4">
-                                    <li class="flex items-start gap-3">
-                                        <span class="material-symbols-outlined text-primary-alt text-sm mt-0.5">eco</span>
-                                        <p class="text-black text-sm font-bold leading-tight">Стабильная работа без запаха</p>
-                                    </li>
-                                    <li class="flex items-start gap-3">
-                                        <span class="material-symbols-outlined text-primary-alt text-sm mt-0.5">verified</span>
-                                        <p class="text-black text-sm font-bold leading-tight">Гарантия чистоты и комфорта</p>
-                                    </li>
-                                    <li class="flex items-start gap-3">
-                                        <span class="material-symbols-outlined text-primary-alt text-sm mt-0.5">build</span>
-                                        <p class="text-black text-sm font-bold leading-tight">Существенная экономия бюджета</p>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p-4 bg-[#f8f5f6] dark:bg-[#230f10] border-t border-black/10 mt-auto">
-                        <button onclick="showSection('hero')" class="w-full bg-primary-alt hover:bg-[#c4040d] text-white font-bold text-sm uppercase tracking-widest py-5 transition-all flex items-center justify-center gap-3 rounded-none">
-                            <span>ПОСМОТРЕТЬ ВЕСЬ ПРОЕКТ</span>
-                            <span class="material-symbols-outlined text-lg">arrow_forward</span>
-                        </button>
-                        <div class="h-6"></div>
-                    </div>
-                </main>
-            </div>
-        </div>
-    </section>
-
-    <script>
-        // Navigation function
-        function showSection(sectionId) {
-            // Hide all sections
-            document.querySelectorAll('section').forEach(section => {
-                section.classList.remove('section-active');
-                section.classList.add('section-hidden');
-            });
-            
-            // Show target section
-            const targetSection = document.getElementById(sectionId);
-            if (targetSection) {
-                targetSection.classList.remove('section-hidden');
-                targetSection.classList.add('section-active');
-            }
-            
-            // Update nav buttons
-            document.querySelectorAll('.nav-btn').forEach(btn => {
-                btn.classList.remove('bg-primary');
-                if (btn.dataset.section === sectionId) {
-                    btn.classList.add('bg-primary');
                 }
-            });
-            
-            // Scroll to top
-            window.scrollTo(0, 0);
+            }
         }
-
-        // Calculator functionality
-        const freqMultipliers = {
-            'weekly': 52,
-            'monthly': 12,
-            'halfyear': 2
-        };
-
-        let currentFreq = 'weekly';
-
-        document.querySelectorAll('.freq-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                // Reset all buttons
-                document.querySelectorAll('.freq-btn').forEach(b => {
-                    b.classList.remove('bg-black', 'text-white');
-                    b.classList.add('bg-white', 'text-black');
-                    b.querySelector('.check-icon').textContent = 'check_box_outline_blank';
-                });
-                
-                // Set active button
-                this.classList.remove('bg-white', 'text-black');
-                this.classList.add('bg-black', 'text-white');
-                this.querySelector('.check-icon').textContent = 'check_box';
-                
-                currentFreq = this.dataset.freq;
-                calculateTotal();
-            });
-        });
-
-        document.getElementById('pump-cost').addEventListener('input', calculateTotal);
-
-        function calculateTotal() {
-            const cost = parseInt(document.getElementById('pump-cost').value) || 0;
-            const multiplier = freqMultipliers[currentFreq];
-            const yearly = cost * multiplier;
-            const twoYears = yearly * 2;
-            
-            document.getElementById('yearly-cost').textContent = `Ваши затраты в год: ${yearly.toLocaleString('ru-RU')} ₽`;
-            document.getElementById('total-loss').textContent = `${twoYears.toLocaleString('ru-RU')} ₽`;
-        }
-
-        // Initialize
-        calculateTotal();
     </script>
+<style type="text/tailwindcss">
+        @layer base {
+            body {
+                @apply font-sans bg-white text-black;
+                min-height: 100dvh;
+            }
+            * {
+                border-radius: 0 !important;
+            }
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1, 'wght' 700, 'GRAD' 0, 'opsz' 24;
+        }
+        .comparison-divider {
+            width: 4px;
+            background-color: #FF851B;
+            height: 100%;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 20;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="antialiased">
+<header class="sticky top-0 z-50 bg-primary text-white border-b-4 border-accent p-4 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-accent">construction</span>
+<h1 class="text-lg font-extrabold uppercase tracking-tight">Септик Сервис</h1>
+</div>
+<button class="flex items-center justify-center p-1">
+<span class="material-symbols-outlined">share</span>
+</button>
+</header>
+<main class="max-w-md mx-auto pb-32">
+<div class="p-4 bg-white border-b-2 border-black">
+<div class="flex items-center justify-between mb-1">
+<span class="bg-primary text-white text-[10px] font-black px-2 py-0.5 uppercase tracking-tighter">Объект: #2024-ЛО01</span>
+<span class="text-xs font-bold text-gray-600">СЕРТИФИЦИРОВАННЫЙ СЕРВИС</span>
+</div>
+<h2 class="text-2xl font-black uppercase leading-none mb-1">Замена септика</h2>
+<p class="text-sm font-bold text-gray-700">Жилой дом • Полная замена • 2024</p>
+</div>
+<div class="relative bg-gray-200 aspect-[4/3] border-b-4 border-black group">
+<div class="absolute inset-0 bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB5RQAaWvDSM0KEmZYELH9R1kwPGQe4FPYpR3tPHpsp4RqfwcjUQb7m4iNbKdp2qaHqrfCqPDnkrn6KG-3-7tlhlSll7YnCfDdiejHlOZv_RtuvCSrLem92Q-dQ2_aWgYHBOIvRneVF1CL_KPfkg0Nd1mcjFZY6xBCvSyTnjxF4A2I4a0VpPPbd3ewu1xaGxvINlYbt89Bx6Hhg62W6b0dULjBUWIpG--sU_DpyuGSIV4eu_pgP1h-3mEYrP3-yL3xuc5RbQarU1JI");'>
+<div class="absolute bottom-4 right-4 bg-primary text-white text-xs font-black px-3 py-1 border-2 border-white">ПОСЛЕ РАБОТ</div>
+</div>
+<div class="absolute inset-0 bg-cover bg-center w-1/2 overflow-hidden border-r-0" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDL6L4ifwvh-5vA-V4bMldbE8S_w78RJ4lBwi1UKoAajAOvkcTxSwGKmAmvRnLCwB2iA2Y17tQ4tfylMTj7yIbgh6lJowwxOA2yrZQuKLPIpwSJlyGBo0ZnyAB9bj7OqWhlSzrRu53VyaUd8YdI7KnKCgm8ZMAcAjcQ_Sw1i6BR5VkujyBQuf7kUafY7MOnYAxQ8lT1QkjvupGTUejFqH63KuLBHZz0zzeo43VrnZZPNFk7YWndHgL1gNT-9XPWtUwBEXU-yGs3eCU");'>
+<div class="absolute bottom-4 left-4 bg-black text-white text-xs font-black px-3 py-1 border-2 border-white">ДО РАБОТ</div>
+</div>
+<div class="comparison-divider">
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-accent text-white size-10 flex items-center justify-center border-4 border-black">
+<span class="material-symbols-outlined text-lg">unfold_more</span>
+</div>
+</div>
+</div>
+<div class="p-4">
+<h3 class="text-lg font-black uppercase mb-4 flex items-center gap-2">
+<span class="w-2 h-6 bg-accent"></span>
+                Технический аудит
+            </h3>
+<div class="border-2 border-black divide-y-2 divide-black">
+<div class="p-4 bg-gray-50 flex gap-4">
+<div class="bg-red-600 text-white size-10 shrink-0 flex items-center justify-center border-2 border-black">
+<span class="material-symbols-outlined">block</span>
+</div>
+<div>
+<p class="text-sm font-black uppercase text-red-700">Старая система (обнаружено)</p>
+<p class="text-sm leading-tight font-medium">Разрушенный бетонный септик. Высокий риск загрязнения почвы. Устаревшая система дренажа.</p>
+</div>
+</div>
+<div class="p-4 bg-white flex gap-4">
+<div class="bg-primary text-white size-10 shrink-0 flex items-center justify-center border-2 border-black">
+<span class="material-symbols-outlined">check_circle</span>
+</div>
+<div>
+<p class="text-sm font-black uppercase text-primary">Профессиональное решение</p>
+<p class="text-sm leading-tight font-medium">Автономная канализация из полимерных материалов. Герметичные соединения. Оптимизированное распределение потока.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="px-4 mt-2">
+<div class="border-4 border-primary p-5 bg-white space-y-4">
+<h3 class="font-black uppercase text-primary border-b-2 border-primary pb-2">Анализ и результаты</h3>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-accent text-xl">plumbing</span>
+<div>
+<p class="font-black text-sm uppercase">Материалы премиум-класса</p>
+<p class="text-sm text-gray-700 font-medium">Установлены промышленные фильтры для предотвращения насыщения грунта.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-accent text-xl">precision_manufacturing</span>
+<div>
+<p class="font-black text-sm uppercase">Точная планировка</p>
+<p class="text-sm text-gray-700 font-medium">Машинная выравнивание поверхности для бесшумного дренажа и восстановления газона.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="p-4 grid grid-cols-2 gap-4">
+<div class="border-4 border-black p-4 flex flex-col items-center justify-center">
+<p class="text-[10px] font-black uppercase text-gray-500 mb-1">Срок службы</p>
+<p class="text-2xl font-black text-primary">50 ЛЕТ</p>
+<p class="text-[10px] font-bold uppercase text-primary">ГАРАНТИЯ</p>
+</div>
+<div class="border-4 border-black p-4 flex flex-col items-center justify-center bg-gray-50">
+<p class="text-[10px] font-black uppercase text-gray-500 mb-1">Соответствие</p>
+<p class="text-2xl font-black text-primary">100%</p>
+<p class="text-[10px] font-bold uppercase text-primary">СТАНДАРТАМ</p>
+</div>
+</div>
+</main>
+<div class="fixed bottom-0 left-0 right-0 bg-white border-t-4 border-black p-4 z-50">
+<div class="max-w-md mx-auto">
+<button class="w-full bg-accent hover:bg-orange-600 text-black font-black uppercase text-lg py-4 border-x-4 border-y-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-y-1 active:shadow-none transition-all flex items-center justify-center gap-2">
+                Получить полный план проекта
+                <span class="material-symbols-outlined font-black">arrow_forward</span>
+</button>
+</div>
+</div>
+
 </body>
 </html>
